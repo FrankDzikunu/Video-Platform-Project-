@@ -25,6 +25,7 @@ Common control buttons (play, pause, volume control, fullscreen) for video playb
 Branding:
 
 The business logo is prominently displayed on each video page.
+
 **Admin Functionality:**
 
 **Video Upload:**
