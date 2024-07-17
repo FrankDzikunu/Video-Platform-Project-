@@ -1,4 +1,3 @@
-
 from pathlib import Path
 import os
 
@@ -16,11 +15,18 @@ SECRET_KEY = 'django-insecure-ii_!04vzp%^6co^c&4j2i13$7s4kz-%fi(ybn8a$g=4bd&7!z&
 DEBUG = True
 
 ALLOWED_HOSTS = []
+
+LOGIN_URL = 'login'
+LOGOUT_REDIRECT_URL = 'login'
+
+LOGIN_REDIRECT_URL = 'home'  # URL to redirect to after logging in
+
+
 # settings.py
 
-LOGIN_URL = 'login'  # URL to redirect to if the user is not logged in
-LOGIN_REDIRECT_URL = 'home'  # URL to redirect to after logging in
-LOGOUT_REDIRECT_URL = 'login'  # URL to redirect to after logging out
+# Set the email backend to console for development
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
 
 
 # Application definition

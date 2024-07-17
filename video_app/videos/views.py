@@ -3,6 +3,9 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from .models import Video  # Adjust the import path as per your project structure
 from django.core.paginator import Paginator
+# views.py
+from django.contrib.auth import logout
+
 
 @login_required
 def home(request):
@@ -42,3 +45,9 @@ def video_list(request):
 @login_required
 def profile(request):
     return render(request, 'videos/profile.html')  # Replace 'profile.html' with your actual template
+
+
+def custom_logout(request):
+    logout(request)
+    return redirect('login')
+
