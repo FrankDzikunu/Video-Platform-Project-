@@ -1,0 +1,36 @@
+{% extends "base_generic.html" %}
+
+{% block title %}{{ video.title }}{% endblock %}
+
+{% block content %}
+<h1>{{ video.title }}</h1>
+<div class="video-container">
+    <video id="videoPlayer" width="100%" controls autoplay>
+        <source src="{{ video.file.url }}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="video-controls">
+        <button onclick="document.getElementById('videoPlayer').play()">Play</button>
+        <button onclick="document.getElementById('videoPlayer').pause()">Pause</button>
+        <button onclick="document.getElementById('videoPlayer').load()">Stop</button>
+        <!-- Share button -->
+        <button onclick="shareVideo()" class="btn btn-primary">Share</button>
+    </div>
+    <div>
+        {% if previous_video %}
+        <a href="{% url 'video_detail' previous_video.id %}" class="btn btn-primary">Previous</a>
+        {% endif %}
+        {% if next_video %}
+        <a href="{% url 'video_detail' next_video.id %}" class="btn btn-primary">Next</a>
+        {% endif %}
+    </div>
+</div>
+
+<script>
+    function shareVideo() {
+        const videoUrl = window.location.href;  // Get current video page URL
+        navigator.clipboard.writeText(videoUrl);  // Copy URL to clipboard
+        alert(`Video link copied to clipboard:\n${videoUrl}`);
+    }
+</script>
+{% endblock %}
