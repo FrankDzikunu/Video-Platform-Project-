@@ -303,9 +303,9 @@ VIDEO-PLATFORM-PROJECT/
    ```
 
 #### Database Design (ER Diagram)
-
+```
 ![ER Diagram](video_app\static\images\IMG-20240718-WA0006.jpg)
-
+```
 - **User Table:**
   - `id`, `email`, `password_hash`, `is_verified`, `verification_token`
 
