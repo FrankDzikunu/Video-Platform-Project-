@@ -1,11 +1,9 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
-from .models import Video  # Adjust the import path as per your project structure
+from django.contrib.auth import authenticate, login, logout
+from .models import Video
 from django.core.paginator import Paginator
-# views.py
-from django.contrib.auth import logout
-
 
 @login_required
 def home(request):
@@ -32,22 +30,34 @@ def signup(request):
         form = UserCreationForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('login')
+            return redirect('account_login')  # Redirect to the login page
     else:
         form = UserCreationForm()
     return render(request, 'videos/signup.html', {'form': form})
 
+def custom_login(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect('home')
+        else:
+            return render(request, 'videos/login.html', {'error': 'Invalid username or password'})
+    return render(request, 'videos/login.html')
+
 @login_required
 def video_list(request):
-    # You can replace this with actual video retrieval logic
     return render(request, 'videos/video_list.html')
 
 @login_required
 def profile(request):
-    return render(request, 'videos/profile.html')  # Replace 'profile.html' with your actual template
-
+    return render(request, 'videos/profile.html')  
 
 def custom_logout(request):
     logout(request)
     return redirect('login')
 
+def email_verification_sent(request):
+    return render(request, 'videos/email_verification_sent.html')

@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %}Video App{% endblock %}</title>
+    <title>{% block title %}AFD Flimnivers{% endblock %}</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <style>
         .video-thumbnail img {
@@ -24,12 +24,22 @@
         .video-card {
             margin-bottom: 20px;
         }
+
+        .navbar-brand-logo {
+            width: 150px;
+            height: auto;
+            margin-right: 10px;
+        }
     </style>
 </head>
 
 <body>
+    {% load static %}
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="{% url 'home' %}">Video App</a>
+        <a class="navbar-brand" href="{% url 'home' %}">
+            <img src="{% static 'images/logo.png' %}" alt="Business Logo" class="navbar-brand-logo">
+            Angel FD Animation
+        </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>

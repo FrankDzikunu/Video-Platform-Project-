@@ -55,6 +55,7 @@ The objective of this project is to develop a bespoke video platform for Paul Le
 
 #### Project Structure
 
+```
 VIDEO-PLATFORM-PROJECT/
 │
 ├── video_app/
@@ -102,7 +103,7 @@ VIDEO-PLATFORM-PROJECT/
 ├── manage.py                        # Django management script
 ├── README.md                        # Project documentation, including setup, usage, and ER diagram
 ├── requirements.txt
-
+```
 
 ### API Endpoints
 
@@ -214,35 +215,35 @@ VIDEO-PLATFORM-PROJECT/
 
 
 - **Get All Videos**
-  - `GET /api/v1/video`
+  - `GET /video`
   - Description: Retrieves all videos available on the platform.
   - Response:
     - Success: 200 OK with list of videos
     - Error: 404 Not Found (if no videos found)
 
 - **Get Video by ID**
-  - `GET /api/v1/video/<video_id>`
+  - `GET /video/<video_id>`
   - Description: Retrieves a specific video by its unique ID.
   - Response:
     - Success: 200 OK with video details
     - Error: 404 Not Found (if video not found)
 
 - **Get Videos by User ID**
-  - `GET /api/v1/video/user/<user_id>`
+  - `GET /video/user/<user_id>`
   - Description: Retrieves videos uploaded by a specific user.
   - Response:
     - Success: 200 OK with list of user's videos
     - Error: 404 Not Found (if user has no videos or not found)
 
 - **Get Videos by Share ID**
-  - `GET /api/v1/video/share/<share_id>`
+  - `GET /video/share/<share_id>`
   - Description: Retrieves videos shared via a specific link ID.
   - Response:
     - Success: 200 OK with list of shared videos
     - Error: 404 Not Found (if share ID not found)
 
 - **Update Video by ID**
-  - `PATCH /api/v1/video/<video_id>`
+  - `PATCH /video/<video_id>`
   - Description: Updates details of a specific video (requires JWT token).
   - Request Body:
     ```json
@@ -256,7 +257,7 @@ VIDEO-PLATFORM-PROJECT/
     - Error: 401 Unauthorized, 404 Not Found (if video or user not authorized)
 
 - **Delete Video by ID**
-  - `DELETE /api/v1/video/<video_id>`
+  - `DELETE /video/<video_id>`
   - Description: Deletes a specific video from the platform (requires JWT token).
   - Response:
     - Success: 200 OK, Video deleted successfully
@@ -265,7 +266,7 @@ VIDEO-PLATFORM-PROJECT/
 #### Health Endpoint
 
 - **Check Health**
-  - `GET /api/v1/health/`
+  - `GET /health/`
   - Description: Endpoint to check the health status of the application.
   - Response:
     - Success: 200 OK, Health status: OK

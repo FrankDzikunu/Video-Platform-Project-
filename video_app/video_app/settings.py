@@ -16,13 +16,24 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+
 LOGIN_URL = 'login'
 LOGOUT_REDIRECT_URL = 'login'
 
 LOGIN_REDIRECT_URL = 'home'  # URL to redirect to after logging in
 
+# Allauth settings
+# ACCOUNT_AUTHENTICATION_METHOD = 'username'
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_USERNAME_REQUIRED = True
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
+ACCOUNT_UNIQUE_EMAIL = True
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'login'
 
-# settings.py
+
 
 # Set the email backend to console for development
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
@@ -47,20 +58,31 @@ INSTALLED_APPS = [
     'videos',
 ]
 
+
 AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',  # Default
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
 SITE_ID = 1
 
+# Email settings
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'  # For development purposes
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587 # Use your email provider's SMTP server
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'angelfd501@gmail.com'
+EMAIL_HOST_PASSWORD = '63199510'
 
-# settings.py
+
+
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    BASE_DIR / "static",
-]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# Ensure this setting exists to define the base static directory
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'

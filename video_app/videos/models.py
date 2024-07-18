@@ -7,10 +7,10 @@ class Video(models.Model):
     file = models.FileField(upload_to='videos/')
     thumbnail = models.ImageField(upload_to='thumbnails/', blank=True, null=True)
     uploaded_at = models.DateTimeField(auto_now_add=True)
-    uploaded_by = models.ForeignKey(User, on_delete=models.CASCADE) 
+    uploaded_by = models.ForeignKey(User, on_delete=models.CASCADE)  # Ensure this field is defined
 
 
     def __str__(self):
         return self.title
 
-    
+    # Add any additional methods or properties as needed
