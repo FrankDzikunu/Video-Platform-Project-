@@ -73,7 +73,7 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587 # Use your email provider's SMTP server
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'angelfd501@gmail.com'
-EMAIL_HOST_PASSWORD = 'angelfd'
+EMAIL_HOST_PASSWORD = '63199510'
 
 
 

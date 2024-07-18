@@ -277,7 +277,9 @@ VIDEO-PLATFORM-PROJECT/
 2. **Create and activate a virtual environment:**
    ```bash
    python3 -m venv venv
-   source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+   source venv/bin/activate  # On Windows use 'pip install virtualenv', 'virtualenv venv', `venv\Scripts\activate`
+
+   # pip install --no-cache-dir django-allauth==0.63.6
    ```
 
 3. **Install the required packages:**
@@ -301,6 +303,8 @@ VIDEO-PLATFORM-PROJECT/
    ```
 
 #### Database Design (ER Diagram)
+
+![ER Diagram](video_app\static\images\IMG-20240718-WA0006.jpg)
 
 - **User Table:**
   - `id`, `email`, `password_hash`, `is_verified`, `verification_token`
