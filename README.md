@@ -304,7 +304,7 @@ VIDEO-PLATFORM-PROJECT/
 
 #### Database Design (ER Diagram)
 
-![ER Diagram](video_app\static\images\IMG-20240718-WA0006.jpg)
+![ER Diagram](video_app\static\images\ER_Diagram.jpg)
 
 ![ER Diagram](https://drive.google.com/file/d/1bZRu1JzaZ-sI6iPYf7U3mbG6uSqY7aqq/view?usp=sharing)
 
