@@ -54,55 +54,49 @@ The objective of this project is to develop a bespoke video platform for Paul Le
 - **Deployment:** Docker for containerization, Render for cloud deployment.
 
 #### Project Structure
-
 ```
 VIDEO-PLATFORM-PROJECT/
-│
-├── video_app/
-│   ├── __pycache__/
-│   ├── media/                       # Directory for storing uploaded media files
-│   ├── video_app/
-│   │   ├── __pycache__/
-│   │   ├── __init__.py              # Initialization file for the Django app
-│   │   ├── asgi.py                  # ASGI configuration
-│   │   ├── settings.py              # Django settings file
-│   │   ├── urls.py                  # URL routing
-│   │   ├── wsgi.py                  # WSGI configuration
-│   ├── videos/
-│   │   ├── __pycache__/
-│   │   ├── migrations/              # Directory for database migrations
-│   │   ├── __init__.py              # Initialization file for the videos app
-│   │   ├── admin.py                 # Admin configuration for videos
-│   │   ├── apps.py                  # App configuration for videos
-│   │   ├── forms.py                 # Forms for user input
-│   │   ├── models.py                # Database models for videos
-│   │   ├── tests.py                 # Unit tests for the videos app
-│   │   ├── urls.py                  # URL routing for the videos app
-│   │   ├── views.py                 # Views for handling requests
-│   │   ├── migrations/              # Database migrations
-│   │   │   ├── __pycache__/
-│   │   │   ├── 0001_initial.py
-│   │   │   ├── 0002_rename_video_file_video_file_and_more.py
-│   │   │   ├── 0003_video_uploaded_by.py
-│   ├── templates/
-│   │   ├── videos/
-│   │   │   ├── home.html            # Home page template
-│   │   │   ├── login.html           # Login page template
-│   │   │   ├── password_reset_complete.html  # Password reset complete template
-│   │   │   ├── password_reset_confirm.html   # Password reset confirm template
-│   │   │   ├── password_reset_done.html      # Password reset done template
-│   │   │   ├── password_reset_form.html      # Password reset form template
-│   │   │   ├── profile.html         # Profile page template
-│   │   │   ├── signup.html          # Signup page template
-│   │   │   ├── upload_video.html    # Upload video page template
-│   │   │   ├── video_detail.html    # Video detail page template
-│   │   │   ├── videos_list.html     # Videos list page template
-│   │   │   ├── watch_video.html     # Watch video page template
-│   │   │   ├── base_generic.html    # Base template
-├── db.sqlite3                       # SQLite database file
-├── manage.py                        # Django management script
-├── README.md                        # Project documentation, including setup, usage, and ER diagram
-├── requirements.txt
+├── video_app/                     # Main Django project directory
+│   ├── media/                     # Directory for user-uploaded media files
+│   │   ├── thumbnails/            # Directory for video thumbnails
+│   │   └── videos/                # Directory for video files
+│   ├── static/                    # Directory for static files (CSS, images, JavaScript)
+│   │   ├── css/                   # Directory for CSS files
+│   │   └── images/                # Directory for image files
+│   ├── __pycache__/               # Directory for compiled Python files
+│   ├── __init__.py                # Indicates that this is a Python package
+│   ├── asgi.py                    # ASGI configuration for asynchronous support
+│   ├── settings.py                # Django project settings
+│   ├── urls.py                    # URL configurations for the project
+│   ├── wsgi.py                    # WSGI configuration for deployment
+│   └── views.py                   # Views for the main project
+├── videos/                        # Django app handling video-related functionalities
+│   ├── __pycache__/               # Directory for compiled Python files
+│   ├── migrations/                # Directory for database migration files
+│   ├── templates/                 # Directory for HTML templates
+│   │   ├── account/               # Directory for account-related templates
+│   │   │   └── email/
+│   │   │       └── email_confirmation_message.html  # Template for email confirmation
+│   │   ├── home.html              # Template for the homepage
+│   │   ├── login.html             # Template for login page
+│   │   ├── password_reset_complete.html  # Template for password reset complete page
+│   │   ├── password_reset_confirm.html   # Template for password reset confirmation page
+│   │   ├── password_reset_done.html      # Template for password reset done page
+│   │   ├── password_reset_form.html      # Template for password reset form page
+│   │   ├── profile.html           # Template for user profile page
+│   │   ├── signup.html            # Template for signup page
+│   │   └── video_detail.html      # Template for video detail page
+│   ├── __init__.py                # Indicates that this is a Python package
+│   ├── admin.py                   # Admin configuration for the app
+│   ├── apps.py                    # App configuration
+│   ├── forms.py                   # Forms for the app
+│   ├── models.py                  # Database models for the app
+│   ├── tests.py                   # Tests for the app
+│   ├── urls.py                    # URL configurations for the app
+│   └── views.py                   # Views for the app
+├── db.sqlite3                     # SQLite database file
+├── manage.py                      # Django management script
+└── requirements.txt               # List of Python packages required for the project
 ```
 
 ### API Endpoints
