@@ -323,8 +323,8 @@ VIDEO-PLATFORM-PROJECT/
   - Docker containerization for environment consistency.
   - Cloud deployment on RENDER.
 
-### Deployment link
-- [Deployment link](https://video-platform-deploying.onrender.com)
+### Deployed link
+- [Deployed link](https://video-platform-deploying.onrender.com)
 
 
 ## Acknowledgements
