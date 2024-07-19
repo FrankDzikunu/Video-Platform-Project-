@@ -304,9 +304,9 @@ VIDEO-PLATFORM-PROJECT/
 
 #### Database Design (ER Diagram)
 
-![ER Diagram](video_app\static\images\ER_Diagram.jpg)
+![ER Diagram](C:\Users\Angel FD\OneDrive\Documents\GitHub\Video-Platform-Project-\static\images\ER_Diagram.jpg?raw=true)
 
-![ER Diagram](https://drive.google.com/file/d/1bZRu1JzaZ-sI6iPYf7U3mbG6uSqY7aqq/view?usp=sharing)
+
 
 - **User Table:**
   - `id`, `email`, `password_hash`, `is_verified`, `verification_token`
@@ -322,6 +322,13 @@ VIDEO-PLATFORM-PROJECT/
 - **Deployment Options:**
   - Docker containerization for environment consistency.
   - Cloud deployment on RENDER.
+
+### Deployment link
+- [Deployment link](https://video-platform-deploying.onrender.com)
+
+
+## Acknowledgements
+- [Django Documentation](https://docs.djangoproject.com/)
 
 
 
