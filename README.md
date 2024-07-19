@@ -304,7 +304,7 @@ VIDEO-PLATFORM-PROJECT/
 
 #### Database Design (ER Diagram)
 
-![ER Diagram](C:\Users\Angel FD\OneDrive\Documents\GitHub\Video-Platform-Project-\static\images\ER_Diagram.jpg?raw=true)
+![ER Diagram](https://github.com/FrankDzikunu/Video-Platform-Project-/blob/main/static/images/ER_Diagram.jpg?raw=true)
 
 
 
