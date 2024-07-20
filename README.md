@@ -278,8 +278,6 @@ VIDEO-PLATFORM-PROJECT/
    ```bash
    python3 -m venv venv
    source venv/bin/activate  # On Windows use 'pip install virtualenv', 'virtualenv venv', `venv\Scripts\activate`
-
-   # pip install --no-cache-dir django-allauth==0.63.6
    ```
 
 3. **Install the required packages:**
@@ -324,7 +322,7 @@ VIDEO-PLATFORM-PROJECT/
   - Cloud deployment on RENDER.
 
 ### Deployed link
-- [Deployed link](https://video-platform-deploying.onrender.com)
+- [Deployed link](https://afdfilmniverse.onrender.com)
 
 
 ## Acknowledgements
