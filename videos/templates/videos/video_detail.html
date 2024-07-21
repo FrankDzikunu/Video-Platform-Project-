@@ -9,6 +9,7 @@
         <source src="{{ video.file.url }}" type="video/mp4">
         Your browser does not support the video tag.
     </video>
+    
     <div class="video-controls">
         <button onclick="document.getElementById('videoPlayer').play()">Play</button>
         <button onclick="document.getElementById('videoPlayer').pause()">Pause</button>
@@ -24,6 +25,7 @@
         <a href="{% url 'video_detail' next_video.id %}" class="btn btn-primary">Next</a>
         {% endif %}
     </div>
+    <p>{{ video.description|safe }}</p>
 </div>
 
 <script>

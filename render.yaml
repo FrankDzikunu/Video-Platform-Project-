@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: video-platform
+    env: python
+    plan: free
+    buildCommand: "pip install -r requirements.txt && python manage.py collectstatic --no-input"
+    startCommand: "gunicorn video_app.wsgi:application"
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: video_app.settings
+      - key: SECRET_KEY
+        value: django-insecure-ii_!04vzp%^6co^c&4j2i13$7s4kz-%fi(ybn8a$g=4bd&7!z&
+      - key: DATABASE_URL
+        value: postgresql://video_db_kq76_user:lUn3XzRltNzp3MtW4YjrIV5A58Nhu41I@dpg-cqcpjqpu0jms73e2va0g-a/video_db_kq76 # If using a database service

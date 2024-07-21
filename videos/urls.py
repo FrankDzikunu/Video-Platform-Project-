@@ -1,9 +1,10 @@
 from django.contrib import admin
-from django.urls import path, include  # Ensure path is imported
+from django.urls import path, include  
 from videos import views as video_views
 from django.contrib.auth import views as auth_views
 from allauth.account.views import confirm_email
 from . import views
+from videos.views import video_list
 
 urlpatterns = [
     path('', video_views.home, name='home'),
@@ -12,6 +13,7 @@ urlpatterns = [
     path('logout/', video_views.custom_logout, name='logout'),
     path('videos/', video_views.video_list, name='video_list'),
     path('profile/', video_views.profile, name='profile'),
+    path('videos/', video_list, name='video_list'),
     path('accounts/', include('allauth.urls')),
     path('accounts/profile/', video_views.profile, name='profile'),
     path('watch/<int:video_id>/', video_views.video_detail, name='watch_video'),

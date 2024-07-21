@@ -49,7 +49,11 @@ def custom_login(request):
 
 @login_required
 def video_list(request):
-    return render(request, 'videos/video_list.html')
+    videos = Video.objects.all()
+    context = {
+        'videos': videos,
+    }
+    return render(request, 'videos/video_list.html', context)
 
 @login_required
 def profile(request):
@@ -61,3 +65,4 @@ def custom_logout(request):
 
 def email_verification_sent(request):
     return render(request, 'videos/email_verification_sent.html')
+
