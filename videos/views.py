@@ -3,16 +3,28 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
 from .models import Video
+from .forms import SearchForm
 from django.core.paginator import Paginator
 
 @login_required
 def home(request):
-    video_list = Video.objects.all()
+    form = SearchForm(request.GET or None)
+    query = request.GET.get('query', '')
+    
+    if query:
+        video_list = Video.objects.filter(title__icontains=query)
+    else:
+        video_list = Video.objects.all()
+
     paginator = Paginator(video_list, 1)  # Show 1 video per page
 
     page_number = request.GET.get('page')
     videos = paginator.get_page(page_number)
-    return render(request, 'videos/home.html', {'videos': videos})
+    
+    return render(request, 'videos/home.html', {
+        'videos': videos,
+        'form': form,
+    })
 
 @login_required
 def video_detail(request, video_id):
@@ -66,3 +78,20 @@ def custom_logout(request):
 def email_verification_sent(request):
     return render(request, 'videos/email_verification_sent.html')
 
+def search_view(request):
+    form = SearchForm(request.GET or None)
+    query = request.GET.get('query', '')
+
+    if query:
+        video_list = Video.objects.filter(title__icontains=query)
+    else:
+        video_list = Video.objects.all()
+
+    paginator = Paginator(video_list, 1)  # Show 1 video per page
+    page_number = request.GET.get('page')
+    videos = paginator.get_page(page_number)
+
+    return render(request, 'videos/search.html', {
+        'videos': videos,
+        'form': form,
+    })

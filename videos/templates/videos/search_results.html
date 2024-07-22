@@ -1,0 +1,36 @@
+{% extends 'base_generic.html' %}
+
+{% block title %}Search Results{% endblock %}
+
+{% block content %}
+    <div class="container mt-4">
+        <h1 class="mb-4">Search Results</h1>
+        <p class="lead mb-4">Results for: "{{ query }}"</p>
+
+        {% if results %}
+            <div class="row">
+                {% for result in results %}
+                    <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                        <div class="card h-100 shadow-sm border-light">
+                            <a href="{% url 'video_detail' result.id %}">
+                                {% if result.thumbnail %}
+                                    <img class="card-img-top" src="{{ result.thumbnail.url }}" alt="{{ result.title }}">
+                                {% else %}
+                                    <img class="card-img-top" src="{% static 'default-thumbnail.jpg' %}" alt="No thumbnail available">
+                                {% endif %}
+                            </a>
+                            <div class="card-body">
+                                <h5 class="card-title">{{ result.title }}</h5>
+                                <p class="card-text">{{ result.description|slice:":150" }}{% if result.description|length > 150 %}...{% endif %}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="alert alert-info" role="alert">
+                No results found.
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}
