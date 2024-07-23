@@ -1,4 +1,7 @@
-<!-- templates/videos/search.html -->
+{% extends "base_generic.html" %}
+
+{% block title %}Search{% endblock %}
+{% block content %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +9,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Search Results</title>
     <!-- Bootstrap CSS -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    
     <style>
         .video-card {
             margin-bottom: 1rem;
@@ -22,27 +26,37 @@
         .video-card-body {
             padding: 1rem;
         }
+        .thumbnail {
+            max-width: 100%;
+            max-height: 500px;
+            object-fit: cover;
+        }
+      
+        .btn-custom {
+            
+            transition: background-color 0.3s ease;
+        }
+        .btn-custom:hover {
+            background-color: rgb(82, 210, 255 );
+        }
     </style>
 </head>
 <body>
     <div class="container mt-4">
         <h1 class="mb-4">Search Results</h1>
-        <form method="get" action="{% url 'search' %}" class="mb-4">
-            <div class="input-group">
-                {{ form.as_p }}
-                <button type="submit" class="btn btn-primary">Search</button>
-            </div>
+        <form class="form-inline my-2 my-lg-0" method="GET" action="{% url 'search' %}">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="query" required>
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
         {% if videos %}
             <div class="row">
                 {% for video in videos %}
                     <div class="col-md-4">
                         <div class="video-card">
-                            <img src="{{ video.thumbnail.url }}" alt="{{ video.title }}">
+                            <img src="{{ video.thumbnail.url }}" alt="{{ video.title }}" class="thumbnail">
                             <div class="video-card-body">
-                                <h5 class="card-title">{{ video.title }}</h5>
-                               
-                                <a href="{% url 'watch_video' video.id %}" class="btn btn-info">Watch Video</a>
+                                <h3 class="card-title">{{ video.title }}</h3>
+                                <a href="{% url 'watch_video' video.id %}" class="btn btn-custom">Watch Video</a>
                             </div>
                         </div>
                     </div>
@@ -55,14 +69,14 @@
             <div class="d-flex justify-content-between mt-4">
                 <div>
                     {% if videos.has_previous %}
-                        <a href="?page=1{% if form.query.value %}&query={{ form.query.value }}{% endif %}" class="btn btn-secondary">First</a>
-                        <a href="?page={{ videos.previous_page_number }}{% if form.query.value %}&query={{ form.query.value }}{% endif %}" class="btn btn-secondary">Previous</a>
+                        <a href="?page=1{% if form.query.value %}&query={{ form.query.value }}{% endif %}" class="btn btn-custom">First</a>
+                        <a href="?page={{ videos.previous_page_number }}{% if form.query.value %}&query={{ form.query.value }}{% endif %}" class="btn btn-custom">Previous</a>
                     {% endif %}
                 </div>
                 <div>
                     {% if videos.has_next %}
-                        <a href="?page={{ videos.next_page_number }}{% if form.query.value %}&query={{ form.query.value }}{% endif %}" class="btn btn-secondary">Next</a>
-                        <a href="?page={{ videos.paginator.num_pages }}{% if form.query.value %}&query={{ form.query.value }}{% endif %}" class="btn btn-secondary">Last</a>
+                        <a href="?page={{ videos.next_page_number }}{% if form.query.value %}&query={{ form.query.value }}{% endif %}" class="btn btn-custom">Next</a>
+                        <a href="?page={{ videos.paginator.num_pages }}{% if form.query.value %}&query={{ form.query.value }}{% endif %}" class="btn btn-custom">Last</a>
                     {% endif %}
                 </div>
             </div>
@@ -77,3 +91,4 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.min.js"></script>
 </body>
 </html>
+{% endblock %}

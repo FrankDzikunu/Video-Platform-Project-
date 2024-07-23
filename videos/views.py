@@ -87,11 +87,12 @@ def search_view(request):
     else:
         video_list = Video.objects.all()
 
-    paginator = Paginator(video_list, 1)  # Show 1 video per page
+    paginator = Paginator(video_list, 6)  # Show 6 video per page
     page_number = request.GET.get('page')
     videos = paginator.get_page(page_number)
 
     return render(request, 'videos/search.html', {
         'videos': videos,
         'form': form,
+        'query':query,
     })
