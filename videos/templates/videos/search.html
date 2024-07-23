@@ -28,7 +28,7 @@
         }
         .thumbnail {
             max-width: 100%;
-            max-height: 500px;
+            max-height: 100%;
             object-fit: cover;
         }
       
@@ -55,7 +55,7 @@
                         <div class="video-card">
                             <img src="{{ video.thumbnail.url }}" alt="{{ video.title }}" class="thumbnail">
                             <div class="video-card-body">
-                                <h3 class="card-title">{{ video.title }}</h3>
+                                <h5 class="card-title">{{ video.title }}</h5>
                                 <a href="{% url 'watch_video' video.id %}" class="btn btn-custom">Watch Video</a>
                             </div>
                         </div>
